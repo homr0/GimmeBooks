@@ -1,6 +1,12 @@
-$(document).ready(function() {
-  $(".collapsible").collapsible();
+$(document).ready(function(){
+  $('.collapsible').collapsible();
+  
+  $('.dropdown-trigger').dropdown({
+    closeOnClick: false,
+    constrainWidth: false
+  });
 });
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
