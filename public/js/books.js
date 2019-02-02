@@ -10,32 +10,66 @@ $(document).ready(function() {
         function(response) {
           console.log(response);
 
-          for (i = 0; i < response.items.length; i++) {
-            var book = response.items[i].volumeInfo;
+          $("#search_results .search_book").remove();
 
-            var title = $("<h5>")
-              .addClass("center align black-text")
-              .text(book.title);
+          if (response.items.length < 1) {
+            $("<li>")
+              .addClass("search_book")
+              .text("Sorry, no books found.")
+              .appendTo("#search_results");
+          } else {
+            for (i = 0; i < response.items.length; i++) {
+              var book = response.items[i].volumeInfo;
 
-            var author = $("<h5>")
-              .addClass("center align black-text")
-              .text(book.authors);
+              var icon = $("<i>")
+                .addClass("material-icons")
+                .text("library_books");
 
-            var img = $("<img>")
-              .addClass("aligning card z-depth-5")
-              .attr({
-                id: "dynamic" + i,
-                alt: book.title,
-                src: book.imageLinks.thumbnail
-              });
+              var header = $("<div>")
+                .addClass("collapsible-header")
+                .html("<em>" + book.title + "</em>&nbsp;by " + book.authors)
+                .prepend(icon);
 
-            var button = $("<a>")
-              .addClass("btn blue imageButton")
-              .attr({
-                href: book.infoLink
-              });
+              var img = $("<img>")
+                .addClass("aligning card z-depth-5")
+                .attr({
+                  id: "dynamic" + i,
+                  alt: book.title,
+                  src: book.imageLinks.thumbnail
+                });
 
-            $("#search_results").append(title, author, img, button);
+              var button = $("<a>")
+                .addClass("btn blue imageButton")
+                .attr({
+                  href: book.infoLink
+                })
+                .text("Read more");
+
+              var imgCol = $("<div>")
+                .addClass("col s3")
+                .append(img, button);
+
+              var title = $("<h5>")
+                .addClass("center align black-text")
+                .text(book.title);
+
+              var author = $("<h5>")
+                .addClass("center align black-text")
+                .text(book.authors);
+
+              var infoCol = $("<div>")
+                .addClass("col s9")
+                .append(title, author);
+
+              var body = $("<div>")
+                .addClass("collapsible-body row")
+                .append(imgCol, infoCol);
+
+              $("<li>")
+                .addClass("search_book")
+                .append(header, body)
+                .appendTo("#search_results");
+            }
           }
         }
       );
