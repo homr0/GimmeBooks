@@ -55,11 +55,28 @@ $(document).ready(function() {
 
               var author = $("<h5>")
                 .addClass("center align black-text")
-                .text(book.authors);
+                .text(book.authors.join(", "));
+
+              var year = $("<p>").html(
+                "<strong>Year:</strong> " + book.publishedDate
+              );
+
+              var genre = $("<p>").html(
+                "<strong>Genre(s):</strong> " + book.categories.join(", ")
+              );
+
+              var isbn = $("<p>").html(
+                "<strong>ISBN:</strong> " +
+                  book.industryIdentifiers[0].identifier
+              );
+
+              var summary = $("<p>")
+                .addClass("black-text")
+                .text(book.description);
 
               var infoCol = $("<div>")
                 .addClass("col s9")
-                .append(title, author);
+                .append(title, author, year, genre, isbn, summary);
 
               var body = $("<div>")
                 .addClass("collapsible-body row")
