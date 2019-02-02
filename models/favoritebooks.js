@@ -20,6 +20,10 @@ module.exports = function(sequelize, DataTypes) {
             notNull: true,
         },
 
+        image_url: {
+            type: String
+        },
+
         isbn: {
             type: DataTypes.STRING,
             notNull: true,
