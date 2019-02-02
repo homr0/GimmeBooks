@@ -21,7 +21,8 @@ module.exports = function(sequelize, DataTypes) {
         },
 
         image_url: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
+            notNull: false,
         },
 
         isbn: {
@@ -29,7 +30,15 @@ module.exports = function(sequelize, DataTypes) {
             notNull: true,
         }
     });
+
+  favoriteBooks.associate = function(models) {
+      favoriteBooks.belongsTo(models.User, {
+          foriegnKey: {
+              allowNull: true
+          }
+      });
   };
 
   return favoriteBooks;
 };
+

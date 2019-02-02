@@ -3,39 +3,39 @@ var db = require("../models");
 module.exports = function(app) {
 
   // Get all examples
-  app.post("/api/users", function(req, res) {
+  app.post("/api/user", function(req, res) {
     // findAll returns all enteries for a table when used with no options
-    db.user.findAll({
+    db.User.findAll({
       name:req.body.name,
       email:req.body.email,
       password:req.body.password
-    }).then(function(dbuser) {
-      res.json(dbuser);
+    }).then(function(dbUser) {
+      res.json(dbUser);
     });
   });
 
   // Create a new example
   app.post("/api/favorites", function(req, res) {
-    db.favoritebooks.create({
+    db.favoriteBooks.create({
       title:req.body.title,
       author:req.body.author,
       genre:req.body.genre,
       year:req.body.year,
       ISBN:req.body.ISBN,
       id:req.body.id
-      }).then(function(dbuser) {
-      res.json(dbuser);
+      }).then(function(dbUser) {
+      res.json(dbUser);
     });
   });
 
   // Delete an example by id
   app.delete("/api/favorites/:id", function(req, res) {
-    db.user.destroy({ 
+    db.User.destroy({ 
       where: { 
         id: req.params.id
        }
-     }).then(function(dbfavorite) {
-      res.json(dbfavorite);
+     }).then(function(dbfavoriteBooks) {
+      res.json(dbfavoriteBooks);
     });
   });
 
@@ -50,8 +50,8 @@ module.exports = function(app) {
       where: {
         id: req.body.id
       }
-    }).then(function(favoritebooks) {
-      res.json(favoritebooks);
+    }).then(function(favoriteBooks) {
+      res.json(favoriteBooks);
     });
   });
 };
