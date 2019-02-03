@@ -1,38 +1,34 @@
 module.exports = function(sequelize, DataTypes) {
-  var favoriteBooks = sequelize.define("favoriteBooks", {
+  var favoriteBooks = sequelize.define('favoriteBooks', {
     title: {
       type: DataTypes.STRING,
-      notNull: true
+      notNull: true,
     },
 
     author: {
       type: DataTypes.STRING,
-      notNull: true
+      notNull: true,
     },
 
     genre: {
       type: DataTypes.STRING,
-      notNull: false
+      notNull: false,
     },
 
     year: {
       type: DataTypes.DATEONLY,
-      notNull: true
+      notNull: true,
+    },
+
+    image_url: {
+      type: DataTypes.STRING
     },
 
     isbn: {
       type: DataTypes.STRING,
-      notNull: true
+      notNull: true,
     }
   });
-
-  favoriteBooks.associate = function(models) {
-    favoriteBooks.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: true
-      }
-    });
-  };
 
   return favoriteBooks;
 };
