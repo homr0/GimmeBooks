@@ -18,23 +18,23 @@
       {{else}}
 
       <div class="col s12 offset-m6 m6 blue lighten-5 center">
-        <h3>Sign up now!</h3>
+        <h5>New here? Create a free account!</h5>
 
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="What do you want to be called?" id="screen_name" type="text" class="validate">
-            <label for="screen_name">Screen Name</label>
+            <input id="user_name" type="text" class="validate">
+            <label for="user_name">Name</label>
           </div>
           <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
+            <input id="signEmail" type="email" class="validate">
+            <label for="signEmail">Email</label>
           </div>
           <div class="input-field col s12">
-            <input id="password" type="password" class="validate">
-            <label for="password">Password</label>
+            <input id="signPassword" type="password" class="validate">
+            <label for="signPassword">Password</label>
           </div>
 
-          <button class="btn green">Sign Up</button>
+          <button id="signUpButton" class=" btn">Sign Up</button>
         </div>
 
       </div>
@@ -48,7 +48,7 @@
     <form id="bookForm">
       <div class="input-field col s6 offset-s3">
         <input id="search_bar" type="search">
-        <label for="search_bar"><i class="material-icons">search</i> Search by Title, Author, or Genre</label>
+        <label for="search_bar"><i class="material-icons">search</i> Search by Book Title or Author</label>
         <i class="material-icons">close</i>
       </div>
     </form>
