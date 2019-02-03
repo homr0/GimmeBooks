@@ -20,7 +20,6 @@ module.exports = function(sequelize, DataTypes) {
       notNull: true,
     },
 
-<<<<<<< HEAD
         image_url: {
             type: DataTypes.STRING,
             notNull: false,
@@ -39,17 +38,6 @@ module.exports = function(sequelize, DataTypes) {
           }
       });
   };
-=======
-    image_url: {
-      type: DataTypes.STRING
-    },
-
-    isbn: {
-      type: DataTypes.STRING,
-      notNull: true,
-    }
-  });
->>>>>>> fe5b2a579f8c704aa386adaeabc0d91bc3d868a7
 
   return favoriteBooks;
 };
