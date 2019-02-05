@@ -15,6 +15,7 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "lint": "^1.1.2",
+    "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
     "sequelize": "^4.42.0"
   },
@@ -41,4 +42,5 @@
     "url": "https://github.com/homr0/GimmeBooks/issues"
   },
   "homepage": "https://github.com/homr0/GimmeBooks#readme"
-}
+  }
+

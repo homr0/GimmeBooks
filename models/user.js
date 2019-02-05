@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 module.exports = function(sequelize, Sequelize) {
   var User = sequelize.define("User", {
     userName: {

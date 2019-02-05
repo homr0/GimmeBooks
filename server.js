@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var bodyParser = require("body-parser");
 var db = require("./models");
 
 var app = express();
@@ -11,6 +11,13 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(bodyParser.json());
+app.use(cors());
+app.use(
+  bodyParser.urlencoded({
+    extendended: false
+  })
+);
 
 // Handlebars
 app.engine(
@@ -26,6 +33,9 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
+
+var Users = require("./routes/Users");
+app.use("/users", Users);
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
