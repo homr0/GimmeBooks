@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var favoriteBooks = sequelize.define("favoriteBooks", {
+  var favoriteBooks = sequelize.define("favoriteBook", {
     title: {
       type: DataTypes.STRING,
       notNull: true
@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  favoriteBooks.associate = function(models) {
+  favoriteBooks.associate = (models) => {
     favoriteBooks.belongsTo(models.User, {
       foriegnKey: {
         allowNull: true
