@@ -1,25 +1,27 @@
-/* eslint-disable camelcase */
-module.exports = function(sequelize, Sequelize) {
+module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     userName: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       notEmpty: true
     },
 
     email: {
-      type: Sequelize.STRING,
-      primaryKey: true,
+      type: DataTypes.STRING,
       validate: {
-        isEmail: true
+        // isEmail: true
       }
     },
     password: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     }
   });
-  User.associate = function(models) {
-    User.hasMany(models.favoriteBooks);
+
+  User.associate = (models) => {
+    User.hasMany(models.favoriteBook, {
+      onDelete: "CASCADE"
+    });
   };
+
   return User;
 };

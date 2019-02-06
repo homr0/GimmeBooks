@@ -24,7 +24,7 @@ $(document).ready(function() {
 
     console.log(newUser);
 
-    $.ajax("/api/user", {
+    $.ajax("/register", {
       method: "POST",
       data: newUser
     }).then(function() {
