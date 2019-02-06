@@ -3,23 +3,27 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var db = require("./models");
-var cors = require("cors");
-
+var connection = require("./config");
+var authenticateController = require("./controllers/authenticate-controller");
+var registerController = require("./controllers/register-controller");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static("public"));
 app.use(bodyParser.json());
-app.use(cors());
 app.use(
   bodyParser.urlencoded({
-    extendended: false
+    extendended: true
   })
 );
-
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + "/" + "..views/index.handlebars");
+});
+app.get("../views/index.handlebars", function(req, res) {
+  res.sendFile(__dirname + "/" + "../views/index.handlebars");
+});
 // Handlebars
 app.engine(
   "handlebars",
@@ -33,10 +37,16 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-var syncOptions = { force: false };
+/* route to handle login and registration */
+app.post("/api/register", registerController.register);
+app.post("/api/authenticate", authenticateController.authenticate);
 
-var Users = require("./routes/Users");
-app.use("/users", Users);
+console.log(authenticateController);
+app.post("/controllers/register-controller", registerController.register);
+app.post(
+  "/controllers/authenticate-controller",
+  authenticateController.authenticate
+);
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
