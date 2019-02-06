@@ -1,0 +1,16 @@
+<main class="container">
+    <h2>{{user}}</h2>
+
+    <ul class="collection" id="booklist">
+        {{#each books}}
+        <li class="collection-item">
+            {{title}} by {{author}}
+
+            {{#if isUser}}
+            <button class="btn red delete" data-id="{{id}}"><i class="material-icons">delete</i>Delete</button>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+
+</main>
