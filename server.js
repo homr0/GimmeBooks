@@ -3,6 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var db = require("./models");
+var cors = require("cors");
 
 var app = express();
 var PORT = process.env.PORT || 3000;

@@ -7,7 +7,7 @@ var token;
 
 users.use(cors());
 
-process.env.SECRET_KEY = "devesh";
+process.env.SECRET_KEY = "meenal";
 
 users.post('/register', function(req, res) {
 
