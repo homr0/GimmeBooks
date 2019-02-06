@@ -1,6 +1,6 @@
 var db = require("../models");
-var Cryptr = require("cryptr");
-var cryptr = new Cryptr("myTotallySecretKey");
+// var Cryptr = require("cryptr");
+// var cryptr = new Cryptr("myTotallySecretKey");
 
 module.exports = function(app) {
   // Registers a new user.
@@ -20,30 +20,32 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/login", (req, res) => {
+  app.post("/login", function(req, res) {
     // Encrypt password
     // var passphrase = cryptr.encrypt(req.body.password);
-    
+
     // Each email should be unique and case insensitive.
     db.User.findOne({
       where: {
         email: req.body.email
       }
-    }).then((dbUser) => {
-      // Log in user.
-      // Do something here.
-      var login = dbUser.dataValues.password === req.body.password;
+    })
+      .then(function(dbUser) {
+        // Log in user.
+        // Do something here.
+        var login = dbUser.dataValues.password === req.body.password;
 
-      console.log(login);
-      res.json(dbUser);
-    }).catch((err) => {
-      console.log(err);
-      res.json(err);
-    });
+        console.log(login);
+        res.json(dbUser);
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
   });
 
   // Create a new favorite book for a user.
-  app.post("/api/favorites", (req, res) => {
+  app.post("/api/favorites", function(req, res) {
     db.favoriteBooks
       .create({
         title: req.body.title,
@@ -59,29 +61,33 @@ module.exports = function(app) {
   });
 
   // Gets the user's favorite books list.
-  app.get("/user/:id", (req, res) => {
-    db.favoriteBooks.findAll({
-      where: {
-        UserId: req.params.id
-      }
-    }).then((favoriteBooks) => {
-      const hbsObject = {
-        books: favoriteBooks
-      };
+  app.get("/user/:id", function(req, res) {
+    db.favoriteBooks
+      .findAll({
+        where: {
+          UserId: req.params.id
+        }
+      })
+      .then(function(favoriteBooks) {
+        var hbsObject = {
+          books: favoriteBooks
+        };
 
-      res.render("user", hbsObject);
-    })
+        res.render("user", hbsObject);
+      });
   });
 
   // Delete a favorite book for a user
-  app.delete("/user/:id/:bookId", (req, res) => {
-    db.favoriteBooks.destroy({
-      where: {
-        UserId: req.params.id,
-        id: req.params.bookId
-      }
-    }).then(function(dbfavoriteBooks) {
-      res.json(dbfavoriteBooks);
-    });
+  app.delete("/user/:id/:bookId", function(req, res) {
+    db.favoriteBooks
+      .destroy({
+        where: {
+          UserId: req.params.id,
+          id: req.params.bookId
+        }
+      })
+      .then(function(dbfavoriteBooks) {
+        res.json(dbfavoriteBooks);
+      });
   });
 };
