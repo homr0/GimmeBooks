@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // Sets up the Materialize JS plugins
   $(".collapsible").collapsible();
 
   $(".dropdown-trigger").dropdown({
@@ -6,7 +7,8 @@ $(document).ready(function() {
     constrainWidth: false
   });
 
-  // AJAX
+  // AJAX functions
+  // Signs up a user.
   $("#signUpButton").on("click", function(e) {
     e.preventDefault();
 
@@ -25,17 +27,45 @@ $(document).ready(function() {
     console.log(newUser);
 
     if (
-      newUser.name !== "" &&
-      newUser.email !== "" &&
-      newUser.password !== ""
+      !$("#user_name").hasClass("invalid") &&
+      !$("#signEmail").hasClass("invalid") &&
+      !$("#signPassword").hasClass("invalid")
     ) {
       $.ajax("/register", {
         method: "POST",
         data: newUser
-      }).then(function() {
+      }).then(() => {
         console.log("Created New User");
         location.reload();
       });
+    }
+  });
+
+  // Logs in a user.
+  $("#loginButton").on("click", function(e) {
+    e.preventDefault();
+
+    var logUser = {
+      email: $("#loginEmail")
+        .val()
+        .trim(),
+      password: $("#loginPassword")
+        .val()
+        .trim()
+    };
+
+    console.log(logUser);
+
+    if (
+      !$("#loginEmail").hasClass("invalid") && !$("#loginPassword").hasClass("invalid")
+    ) {
+      $.ajax("/login", {
+        method: "POST",
+        data: logUser
+      }).then(() => {
+        console.log("Logged in user");
+        location.reload();
+      })
     }
   });
 });

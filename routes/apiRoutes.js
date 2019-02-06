@@ -22,17 +22,23 @@ module.exports = function(app) {
 
   app.post("/login", (req, res) => {
     // Encrypt password
-    var passphrase = cryptr.encrypt(req.body.password);
+    // var passphrase = cryptr.encrypt(req.body.password);
     
+    // Each email should be unique and case insensitive.
     db.User.findOne({
       where: {
-        email: req.body.email,
-        password: passphrase
+        email: req.body.email
       }
     }).then((dbUser) => {
       // Log in user.
       // Do something here.
+      var login = dbUser.dataValues.password === req.body.password;
+
+      console.log(login);
       res.json(dbUser);
+    }).catch((err) => {
+      console.log(err);
+      res.json(err);
     });
   });
 
