@@ -4,7 +4,7 @@ var cryptr = new Cryptr("myTotallySecretKey");
 
 module.exports = function(app) {
   // Registers a new user.
-  app.post("/register", (req, res) => {
+  app.post("/register", function(req, res) {
     // Encrypt password.
     // var passphrase = cryptr.encrypt(req.body.password);
 
