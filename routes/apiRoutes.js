@@ -1,65 +1,87 @@
 var db = require("../models");
+var Cryptr = require("cryptr");
+var cryptr = new Cryptr("myTotallySecretKey");
 
 module.exports = function(app) {
-  // Get all examples
-  app.post("/api/users", function(req, res) {
-    // findAll returns all enteries for a table when used with no options
+  // Registers a new user.
+  app.post("/register", function(req, res) {
+    // Encrypt password.
+    // var passphrase = cryptr.encrypt(req.body.password);
+
+    // Create new user.
     db.User.create({
-      name: req.body.name,
+      userName: req.body.name,
       email: req.body.email,
       password: req.body.password
-    }).then(function(dbuser) {
-      res.json(dbuser);
+    }).then(function(dbUser) {
+      // Log in right away
+      // Do something here.
+      res.json(dbUser);
     });
   });
 
-  // Create a new example
-  app.post("/api/favorites", function(req, res) {
-    db.favoritebooks
+  app.post("/login", (req, res) => {
+    // Encrypt password
+    // var passphrase = cryptr.encrypt(req.body.password);
+    
+    // Each email should be unique and case insensitive.
+    db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+    }).then((dbUser) => {
+      // Log in user.
+      // Do something here.
+      var login = dbUser.dataValues.password === req.body.password;
+
+      console.log(login);
+      res.json(dbUser);
+    }).catch((err) => {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
+  // Create a new favorite book for a user.
+  app.post("/api/favorites", (req, res) => {
+    db.favoriteBooks
       .create({
         title: req.body.title,
         author: req.body.author,
         genre: req.body.genre,
         year: req.body.year,
         ISBN: req.body.ISBN,
-        id: req.body.id
+        UserId: req.body.id
+      })
+      .then(function(dbUser) {
+        res.json(dbUser);
+      });
+  });
+
+  // Gets the user's favorite books list.
+  app.get("/user/:id", (req, res) => {
+    db.favoriteBooks.findAll({
+      where: {
+        UserId: req.params.id
+      }
+    }).then((favoriteBooks) => {
+      const hbsObject = {
+        books: favoriteBooks
+      };
+
+      res.render("user", hbsObject);
     })
-      .then(function(dbuser) {
-        res.json(dbuser);
-      });
   });
 
-  // Delete an example by id
-  app.delete("/api/favorites/:id", function(req, res) {
-    db.user
-      .destroy({
-        where: {
-          id: req.params.id
-       }
-     })
-      .then(function(dbfavorite) {
-        res.json(dbfavorite);
-      });
-  });
-
-  // PUT route for updating favoritebooks. We  can get the updated favorite books data from req.body
-  app.get("/user/:id", function(req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // We use where to describe which objects we want to update
-    db.favorite
-      .update(
-        {
-          title: req.body.title,
-          authors: req.body.authors
-        },
-        {
-          where: {
-            id: req.body.id
-          }
-        }
-      )
-      .then(function(favoritebooks) {
-        res.json(favoritebooks);
-      });
+  // Delete a favorite book for a user
+  app.delete("/user/:id/:bookId", (req, res) => {
+    db.favoriteBooks.destroy({
+      where: {
+        UserId: req.params.id,
+        id: req.params.bookId
+      }
+    }).then(function(dbfavoriteBooks) {
+      res.json(dbfavoriteBooks);
+    });
   });
 };

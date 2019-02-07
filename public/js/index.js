@@ -1,129 +1,71 @@
-$(document).ready(function () {
-  $('.collapsible').collapsible();
+$(document).ready(function() {
+  // Sets up the Materialize JS plugins
+  $(".collapsible").collapsible();
 
-  $('.dropdown-trigger').dropdown({
+  $(".dropdown-trigger").dropdown({
     closeOnClick: false,
     constrainWidth: false
   });
 
-  // AJAX 
+  // AJAX functions
+  // Signs up a user.
   $("#signUpButton").on("click", function(e) {
     e.preventDefault();
 
     var newUser = {
-      name: $("#user_name").val().trim(),
-      email: $("#signEmail").val().trim(),
-      password: $("#signPassword").val().trim()
+      name: $("#user_name")
+        .val()
+        .trim(),
+      email: $("#signEmail")
+        .val()
+        .trim(),
+      password: $("#signPassword")
+        .val()
+        .trim()
     };
 
     console.log(newUser);
 
-    $.ajax("/api/users", {
-      method: "POST",
-      data: newUser
-    }).then(function() {
-      console.log("Created New User");
-      location.reload();
-    })
+    if (
+      !$("#user_name").hasClass("invalid") &&
+      !$("#signEmail").hasClass("invalid") &&
+      !$("#signPassword").hasClass("invalid")
+    ) {
+      $.ajax("/register", {
+        method: "POST",
+        data: newUser
+      }).then(() => {
+        console.log("Created New User");
+        location.reload();
+      });
+    }
+  });
+
+  // Logs in a user.
+  $("#loginButton").on("click", function(e) {
+    e.preventDefault();
+
+    var logUser = {
+      email: $("#loginEmail")
+        .val()
+        .trim(),
+      password: $("#loginPassword")
+        .val()
+        .trim()
+    };
+
+    console.log(logUser);
+
+    if (
+      !$("#loginEmail").hasClass("invalid") && !$("#loginPassword").hasClass("invalid")
+    ) {
+      $.ajax("/login", {
+        method: "POST",
+        data: logUser
+      }).then(() => {
+        console.log("Logged in user");
+        location.reload();
+      })
+    }
   });
 });
-
-// Get references to page elements
-// var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
-// var $submitBtn = $("#submit");
-// var $exampleList = $("#example-list");
-
-// // The API object contains methods for each kind of request we'll make
-// var API = {
-//   saveExample: function(example) {
-//     return $.ajax({
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       type: "POST",
-//       url: "api/examples",
-//       data: JSON.stringify(example)
-//     });
-//   },
-//   getExamples: function() {
-//     return $.ajax({
-//       url: "api/examples",
-//       type: "GET"
-//     });
-//   },
-//   deleteExample: function(id) {
-//     return $.ajax({
-//       url: "api/examples/" + id,
-//       type: "DELETE"
-//     });
-//   }
-// };
-
-// // refreshExamples gets new examples from the db and repopulates the list
-// var refreshExamples = function() {
-//   API.getExamples().then(function(data) {
-//     var $examples = data.map(function(example) {
-//       var $a = $("<a>")
-//         .text(example.text)
-//         .attr("href", "/example/" + example.id);
-
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": example.id
-//         })
-//         .append($a);
-
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
-
-//       $li.append($button);
-
-//       return $li;
-//     });
-
-//     $exampleList.empty();
-//     $exampleList.append($examples);
-//   });
-// };
-
-// // handleFormSubmit is called whenever we submit a new example
-// // Save the new example to the db and refresh the list
-// var handleFormSubmit = function(event) {
-//   event.preventDefault();
-
-//   var example = {
-//     text: $exampleText.val().trim(),
-//     description: $exampleDescription.val().trim()
-//   };
-
-//   if (!(example.text && example.description)) {
-//     alert("You must enter an example text and description!");
-//     return;
-//   }
-
-//   API.saveExample(example).then(function() {
-//     refreshExamples();
-//   });
-
-//   $exampleText.val("");
-//   $exampleDescription.val("");
-// };
-
-// // handleDeleteBtnClick is called when an example's delete button is clicked
-// // Remove the example from the db and refresh the list
-// var handleDeleteBtnClick = function() {
-//   var idToDelete = $(this)
-//     .parent()
-//     .attr("data-id");
-
-//   API.deleteExample(idToDelete).then(function() {
-//     refreshExamples();
-//   });
-// };
-
-// // Add event listeners to the submit and delete buttons
-// $submitBtn.on("click", handleFormSubmit);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
