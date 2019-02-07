@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  favoriteBooks.associate = (models) => {
+  favoriteBooks.associate = function(models) {
     favoriteBooks.belongsTo(models.User, {
       foriegnKey: {
         allowNull: true

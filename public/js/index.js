@@ -34,7 +34,7 @@ $(document).ready(function() {
       $.ajax("/register", {
         method: "POST",
         data: newUser
-      }).then(() => {
+      }).then(function() {
         console.log("Created New User");
         location.reload();
       });
@@ -57,15 +57,16 @@ $(document).ready(function() {
     console.log(logUser);
 
     if (
-      !$("#loginEmail").hasClass("invalid") && !$("#loginPassword").hasClass("invalid")
+      !$("#loginEmail").hasClass("invalid") &&
+      !$("#loginPassword").hasClass("invalid")
     ) {
       $.ajax("/login", {
         method: "POST",
         data: logUser
-      }).then(() => {
+      }).then(function() {
         console.log("Logged in user");
         location.reload();
-      })
+      });
     }
   });
 });

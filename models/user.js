@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  User.associate = (models) => {
+  User.associate = function(models) {
     User.hasMany(models.favoriteBook, {
       onDelete: "CASCADE"
     });
