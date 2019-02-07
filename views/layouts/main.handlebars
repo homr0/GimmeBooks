@@ -13,14 +13,13 @@
 
 <body>
   <header>
-    <nav>
+    <nav class="nav-extended  brown lighten-2">
 
-      <div class="topnav">
+      {{!-- <div class="topnav">
         <div class="row">
-          <a href="/" class="brand-logo">Gimme Books</a>
+          <a href="/" class="brand-logo">Gimme Books</a> --}}
           <!-- Dropdown Trigger -->
-          <a class='dropdown-trigger btn right' href='#' data-target='login'>Login</a>
-
+          {{!-- <a class='dropdown-trigger btn right' href='#' data-target='login'>Login</a>
           <!-- Dropdown Structure -->
           <ul id='login' class='dropdown-content'>
             <li><input id="loginEmail" type="email">Email</li>
@@ -30,15 +29,39 @@
               <span>Remember Me</span>
             </label>
             <button id="loginButton" class="btn right ">Submit</button>
+          </ul> --}}
+
+          <div class="nav-wrapper  ">
+            <a href="/" class="brand-logo left">Gimme Books</a>
+            <ul id="login" class="right hide-on-med-and-down">
+              <form class="form-inline" action="/action_page.php">
+                <li><input type="email" id="loginEmail" placeholder="Enter email" name="email">
+                  <label>
+                    <input type="checkbox" />
+                    <span>Remember Me</span>
+                  </label></li>
+                <li><input type="password" id="loginPassword" placeholder="Enter password" name="password">
+                  <button type="submit" id="loginButton">Submit</button></li>
+            </ul>
+
+          </div>
+
+          <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+            </ul>
+          </div>
 
 
-          </ul>
 
 
+
+
+          </form>
+
+          {{!--
         </div>
-      </div>
-      </div>
-      </div>
+      </div> --}}
+
     </nav>
   </header>
 
