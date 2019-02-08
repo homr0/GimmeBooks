@@ -15,39 +15,30 @@
   <header>
     <nav class="nav-extended  brown lighten-2">
 
-      {{!-- <div class="topnav">
-        <div class="row">
-          <a href="/" class="brand-logo">Gimme Books</a> --}}
-          <!-- Dropdown Trigger -->
-<<<<<<< HEAD
-          {{!-- <a class='dropdown-trigger btn right' href='#' data-target='login'>Login</a>
-=======
-          <a class="dropdown-trigger btn right" href="#" data-target="login">Login</a>
-
->>>>>>> 99f9eb0a29ef8c106fa3b87fb8e0e21100fcc31e
-          <!-- Dropdown Structure -->
-          <ul id="login" class="dropdown-content">
-            <li><input id="loginEmail" type="email">Email</li>
-            <li><input id="loginPassword" type="password">Password</li>
-            <label>
-              <input type="checkbox">
-              <span>Remember Me</span>
-            </label>
-<<<<<<< HEAD
-            <button id="loginButton" class="btn right ">Submit</button>
-          </ul> --}}
-
           <div class="nav-wrapper  ">
             <a href="/" class="brand-logo left">Gimme Books</a>
+
+            <ul id="logout" class="right hide-on-med-and-down">
+              <li>
+                <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
+              </li>
+            </ul>
+
             <ul id="login" class="right hide-on-med-and-down">
               <form class="form-inline" action="/action_page.php">
-                <li><input type="email" id="loginEmail" placeholder="Enter email" name="email">
+                <li>
+                  <input type="email" id="loginEmail" placeholder="Enter email" name="email">
+                  
                   <label>
-                    <input type="checkbox" />
+                    <input type="checkbox">
                     <span>Remember Me</span>
-                  </label></li>
-                <li><input type="password" id="loginPassword" placeholder="Enter password" name="password">
-                  <button type="submit" id="loginButton">Submit</button></li>
+                  </label>
+                </li>
+
+                <li>
+                  <input type="password" id="loginPassword" placeholder="Enter password" name="password">
+                  <button type="submit" id="loginButton">Submit</button>
+                </li>
             </ul>
 
           </div>
@@ -56,9 +47,6 @@
             <ul class="tabs tabs-transparent">
             </ul>
           </div>
-=======
-            <button id="loginButton" class="btn right">Submit</button>
->>>>>>> 99f9eb0a29ef8c106fa3b87fb8e0e21100fcc31e
 
 
 
