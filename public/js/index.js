@@ -56,8 +56,6 @@ $(document).ready(function() {
         .trim()
     };
 
-    console.log(logUser);
-
     if (
       !$("#loginEmail").hasClass("invalid") &&
       !$("#loginPassword").hasClass("invalid")
