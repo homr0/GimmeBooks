@@ -12,18 +12,23 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-  <nav class="brown lighten-2">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo left">Gimme Books</a>
-      <ul id="logout" class="right hide-on-med-and-down">
-        <li>
-          <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
-        </li>
-      </ul>
+  <header>
+    <nav class="nav-extended blue grey darken-1">
+
+          <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">Gimme Books</a>
+
+            {{#if loggedIn}}
+            <ul id="logout" class="right hide-on-med-and-down">
+              <li>
+                <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
+              </li>
+            </ul>
+
+            {{else}}
       <ul id="login" class="right hide-on-med-and-down">
         <li>
-        <a href="#modal" class="btn modal-trigger btn-large blue darken-2">Login</a>
+        <a href="#modal" class="btn waves-effect waves-light modal-trigger">Login</a>
           <div id="modal" class="modal">
             <div class="modal-content">
               <input type="email" id="loginEmail" placeholder="Enter email" name="email">   
@@ -35,40 +40,7 @@
                 <button type="submit" id="loginButton">Submit</button>
               </li>
             </ul>
-=======
-  <header>
-    <nav class="nav-extended  brown lighten-2">
-
-          <div class="nav-wrapper  ">
-            <a href="/" class="brand-logo left">Gimme Books</a>
-
-            {{#if loggedIn}}
-            <ul id="logout" class="right hide-on-med-and-down">
-              <li>
-                <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
-              </li>
-            </ul>
-
-            {{else}}
-
-            <ul id="login" class="right hide-on-med-and-down">
-              <form class="form-inline" action="/action_page.php">
-                <li>
-                  <input type="email" id="loginEmail" placeholder="Enter email" name="email">
-                  
-                  <label>
-                    <input type="checkbox">
-                    <span>Remember Me</span>
-                  </label>
-                </li>
-
-                <li>
-                  <input type="password" id="loginPassword" placeholder="Enter password" name="password">
-                  <button type="submit" id="loginButton">Submit</button>
-                </li>
-            </ul>
             {{/if}}
->>>>>>> 85673073f509585d2fe64a0a097b614c622f36dc
           </div>
     </nav>
 
@@ -78,18 +50,11 @@
           </div> --}}
 
 
-<<<<<<< HEAD
-          {{!--
-        </div>
-      </div> --}}
-
-=======
 
           </form>
 
     </nav>
   </header>
->>>>>>> 85673073f509585d2fe64a0a097b614c622f36dc
 
   {{{body}}}
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
