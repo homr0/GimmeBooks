@@ -20,7 +20,6 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/login", passport.authenticate("local"), function(req, res) {
     // We want to check that our user is authenticated using Passport and pass that on into the session.
-    console.log(req);
     res.json("../views/user.handlebars");
   });
 

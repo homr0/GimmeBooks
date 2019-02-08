@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(
   express.urlencoded({
-    extendended: true
+    extended: true
   })
 );
 
