@@ -12,32 +12,30 @@
 </head>
 
 <body>
-    <nav class="nav-extended brown lighten-2">
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo left">Gimme Books</a>
-
-        <ul id="logout" class="right hide-on-med-and-down">
-          <li>
-            <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
-          </li>
-        </ul>
-        <ul id="login" class="right hide-on-med-and-down">
-          <form class="form-inline" action="/action_page.php">
-            <li>
+  <nav class="brown lighten-2">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo left">Gimme Books</a>
+      <ul id="logout" class="right hide-on-med-and-down">
+        <li>
+          <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
+        </li>
+      </ul>
+      <ul id="login" class="right hide-on-med-and-down">
+        <li>
+        <a href="#modal" class="btn modal-trigger btn-large blue darken-2">Login</a>
+          <div id="modal" class="modal">
+            <div class="modal-content">
               <input type="email" id="loginEmail" placeholder="Enter email" name="email">   
-              <label>
-                <input type="checkbox">
-                <span>Remember Me</span>
-              </label>
-            </li>
-
-            <li>
-              <input type="password" id="loginPassword" placeholder="Enter password" name="password">
-              <button type="submit" id="loginButton">Submit</button>
-            </li>
-          </ul>
-        </div>
-      </nav>
+                <label>
+                  <input type="checkbox">
+                  <span>Remember Me</span>
+                </label>
+                <input type="password" id="loginPassword" placeholder="Enter password" name="password">
+                <button type="submit" id="loginButton">Submit</button>
+              </li>
+            </ul>
+          </div>
+    </nav>
 
           {{!-- <div class="nav-content">
             <ul class="tabs tabs-transparent">
