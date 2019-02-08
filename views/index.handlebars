@@ -1,9 +1,14 @@
 <main class="container">
 
+  {{#if loggedIn}}
+    <p>You are logged in!</p>
+    {{else}}
+    <p>You are not logged in</p>
+  {{/if}}
   <div id="banner" class="row">
 
     <div class="entry">
-      {{!-- {{#if loggedIn}} --}}
+      {{#if loggedIn}}
       <div class="col s7 amber lighten-5">
 
         <h4>NYT BEST SELLERS LIST</h4>
@@ -17,13 +22,7 @@
         </div>
       </div>
 
-      {{!-- <ol>
-          {{#each books}}
-          <li>{{title}} by {{author}}</li>
-          {{/each}}
-        </ol>
-      </div>
-      {{else}} --}}
+      {{else}}
 
 
 
@@ -51,7 +50,7 @@
         </div>
       </div>
     </div>
-    {{!-- {{/if}} --}}
+    {{/if}}
 
 
     {{!-- MODAL --}}

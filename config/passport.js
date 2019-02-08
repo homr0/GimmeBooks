@@ -8,17 +8,22 @@ passport.use(
   new LocalStrategy(
     // Our user will sign in using an email, rather than a "username"
     {
-      useremailField: "email"
+      usernameField: "email",
+      passwordField: "password"//,
+      // passReqToCallback: true
     },
     function(email, password, done) {
       // When a user tries to sign in this code runs
+      console.log(email + " " + password);
       db.User.findOne({
         where: {
           email: email
         }
       }).then(function(dbUser) {
+        // console.log(dbUser);
+        // console.log(!dbUser);
         // If there's no user with the given email
-        if (!dbUSer) {
+        if (!dbUser) {
           return done(null, false, {
             message: "Incorrect password."
           });

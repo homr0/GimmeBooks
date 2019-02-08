@@ -5,5 +5,5 @@ module.exports = function(req, res) {
   }
 
   // If the user isn't logged in, redirect them to the login page
-  return res.redirect("/");
+  // return res.redirect("/");
 };
