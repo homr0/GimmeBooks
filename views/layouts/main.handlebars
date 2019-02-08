@@ -18,11 +18,14 @@
           <div class="nav-wrapper  ">
             <a href="/" class="brand-logo left">Gimme Books</a>
 
+            {{#if loggedIn}}
             <ul id="logout" class="right hide-on-med-and-down">
               <li>
                 <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
               </li>
             </ul>
+
+            {{else}}
 
             <ul id="login" class="right hide-on-med-and-down">
               <form class="form-inline" action="/action_page.php">
@@ -40,7 +43,7 @@
                   <button type="submit" id="loginButton">Submit</button>
                 </li>
             </ul>
-
+            {{/if}}
           </div>
 
           <div class="nav-content">
@@ -54,10 +57,6 @@
 
 
           </form>
-
-          {{!--
-        </div>
-      </div> --}}
 
     </nav>
   </header>
