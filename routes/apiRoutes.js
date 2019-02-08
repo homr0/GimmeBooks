@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require("../config/passport");
 // var Cryptr = require("cryptr");
 // var cryptr = new Cryptr("myTotallySecretKey");
 
@@ -7,20 +8,32 @@ module.exports = function(app) {
   app.post("/register", function(req, res) {
     // Encrypt password.
     // var passphrase = cryptr.encrypt(req.body.password);
-
+    console.log(req.body);
     // Create new user.
     db.User.create({
       userName: req.body.name,
       email: req.body.email,
       password: req.body.password
     }).then(function(dbUser) {
+      res.redirect(307, "/api/login");
       // Log in right away
       // Do something here.
+      console.log(err);
       res.json(dbUser);
     });
   });
 
-  app.post("/login", function(req, res) {
+  // Using the passport.authenticate middleware with our local strategy.
+  // If the user has valid login credentials, send them to the login page.
+  // Otherwise the user will be sent an error
+  app.post("api/login", passport.authenticate("local"), function(req, res) {
+    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
+    // So we're sending the user back the route to the members page because the redirect will happen on the front end
+    // They won't get this or even be able to access this page if they aren't authed
+    res.json("../views/user.handlebars");
+  });
+
+  /*app.post("/login", function(req, res) {
     // Encrypt password
     // var passphrase = cryptr.encrypt(req.body.password);
 
@@ -42,6 +55,25 @@ module.exports = function(app) {
         console.log(err);
         res.json(err);
       });
+  }); */
+
+  // Route for getting some data about our user to be used client side
+  app.get("api/login", function(req, res) {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      res.json({
+        email: req.user.email,
+        password: req.user.password
+      });
+    }
+  });
+
+  // Route for logging user out
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
   });
 
   // Create a new favorite book for a user.
