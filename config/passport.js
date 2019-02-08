@@ -1,5 +1,6 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+var bcrypt = require("bcrypt-nodejs");
 
 var db = require("../models");
 
@@ -9,23 +10,25 @@ passport.use(
     // Our user will sign in using an email, rather than a "username"
     {
       usernameField: "email",
-      passwordField: "password"//,
-      // passReqToCallback: true
+      passwordField: "password"
     },
     function(email, password, done) {
       // When a user tries to sign in this code runs
       console.log(email + " " + password);
+      password = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+
       db.User.findOne({
         where: {
-          email: email
+          email: email,
+          password: password
         }
       }).then(function(dbUser) {
         // console.log(dbUser);
-        // console.log(!dbUser);
+        console.log(!dbUser);
         // If there's no user with the given email
         if (!dbUser) {
           return done(null, false, {
-            message: "Incorrect password."
+            message: "Incorrect email or password."
           });
         }
         // If none of the above, return the user

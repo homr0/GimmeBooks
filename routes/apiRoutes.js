@@ -1,13 +1,9 @@
 var db = require("../models");
 var passport = require("../config/passport");
-// var Cryptr = require("cryptr");
-// var cryptr = new Cryptr("myTotallySecretKey");
 
 module.exports = function(app) {
   // Registers a new user.
   app.post("/register", function(req, res) {
-    // Encrypt password.
-    // var passphrase = cryptr.encrypt(req.body.password);
     console.log(req.body);
     // Create new user.
     db.User.create({
@@ -15,10 +11,6 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     }).then(function(dbUser) {
-      res.redirect(307, "/api/login");
-      // Log in right away
-      // Do something here.
-      console.log(dbUser);
       res.json(dbUser);
     });
   });
@@ -27,29 +19,8 @@ module.exports = function(app) {
   // If the user has valid login credentials, send them to the login page.
   // Otherwise the user will be sent an error
   app.post("/login", passport.authenticate("local"), function(req, res) {
-    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
-    // So we're sending the user back the route to the members page because the redirect will happen on the front end
-    // They won't get this or even be able to access this page if they aren't authed
-    console.log(req.user.dataValues);
-    // var hbsObject = {
-    //   loggedIn: false
-    // };
-
-    // // If we have a valid user
-    // if (req.user.dataValues) {
-    //   hbsObject = {
-    //     loggedIn: true,
-    //     username: req.user.dataValues.username,
-    //     id: req.user.dataValues.id
-    //   };
-    // }
-
-    var user = req.session;
-
-    if (req.user.dataValues) {
-      user.username = req.user.dataValues.username;
-      user.id = req.user.dataValues.id;
-    }
+    // We want to check that our user is authenticated using Passport and pass that on into the session.
+    console.log(req);
     res.json("../views/user.handlebars");
   });
 
