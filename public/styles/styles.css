@@ -85,7 +85,7 @@
   margin: 5px 10px 5px 0;
   padding: 10px;
   border: 1px solid black;
-  text:  black
+  color:  black
 }
 
 /* Style the submit button */
@@ -99,13 +99,18 @@
 .form-inline button:hover {
   background-color: whitesmoke;
 }
-.nav-extended{
-  height:  50px;
-  line-height:  30px;
-}
 
 .entry .book-cover {
   max-width: 100%;
+}
+
+body {
+  min-height: calc(100vh - 6rem);
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 /* --------------------------------------------------------------------------------------------- */

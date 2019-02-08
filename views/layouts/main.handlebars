@@ -12,55 +12,43 @@
 </head>
 
 <body>
-  <header>
-    <nav class="nav-extended  brown lighten-2">
+    <nav class="nav-extended brown lighten-2">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo left">Gimme Books</a>
 
-          <div class="nav-wrapper  ">
-            <a href="/" class="brand-logo left">Gimme Books</a>
+        <ul id="logout" class="right hide-on-med-and-down">
+          <li>
+            <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
+          </li>
+        </ul>
+        <ul id="login" class="right hide-on-med-and-down">
+          <form class="form-inline" action="/action_page.php">
+            <li>
+              <input type="email" id="loginEmail" placeholder="Enter email" name="email">   
+              <label>
+                <input type="checkbox">
+                <span>Remember Me</span>
+              </label>
+            </li>
 
-            <ul id="logout" class="right hide-on-med-and-down">
-              <li>
-                <a href="/logout" class="btn btn-large waves-effect waves-red red darken-2"><i class="material-icons">exit_to_app</i></a>
-              </li>
-            </ul>
+            <li>
+              <input type="password" id="loginPassword" placeholder="Enter password" name="password">
+              <button type="submit" id="loginButton">Submit</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-            <ul id="login" class="right hide-on-med-and-down">
-              <form class="form-inline" action="/action_page.php">
-                <li>
-                  <input type="email" id="loginEmail" placeholder="Enter email" name="email">
-                  
-                  <label>
-                    <input type="checkbox">
-                    <span>Remember Me</span>
-                  </label>
-                </li>
-
-                <li>
-                  <input type="password" id="loginPassword" placeholder="Enter password" name="password">
-                  <button type="submit" id="loginButton">Submit</button>
-                </li>
-            </ul>
-
-          </div>
-
-          <div class="nav-content">
+          {{!-- <div class="nav-content">
             <ul class="tabs tabs-transparent">
             </ul>
-          </div>
+          </div> --}}
 
-
-
-
-
-
-          </form>
 
           {{!--
         </div>
       </div> --}}
 
-    </nav>
-  </header>
 
   {{{body}}}
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
