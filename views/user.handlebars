@@ -1,7 +1,7 @@
 <main class="container">
     <h2>{{user}}</h2>
 
-    <ul class="collection" id="booklist">
+    {{!-- <ul class="collection" id="booklist">
         {{#each books}}
         <li class="collection-item">
             {{title}} by {{author}}
@@ -11,6 +11,8 @@
             {{/if}}
         </li>
         {{/each}}
-    </ul>
+    </ul> --}}
+
+    {{> partials/books}}
 
 </main>
