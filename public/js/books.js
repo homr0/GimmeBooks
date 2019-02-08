@@ -115,20 +115,18 @@ function updateBestSellers(nytimesBestSellers) {
     var lastWeekRank = book.rank_last_week || 'n/a';
     var weeksOnList = book.weeks_on_list || 'New this week!';
     var listing =
-      '<div id="' + book.rank + '" class="entry">' +
-      '<p>' +
+      '<div id="' + book.rank + '" class="entry row">' +
+      '<div class="stats col s12 m3">' +
       '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/387928/book%20placeholder.png" class="book-cover" id="cover-' + book.rank + '">' +
       '</p>' +
+      '<p>Last Week: ' + lastWeekRank + '</p>' +
+      '<p>Weeks on list: ' + weeksOnList + '</p></div><div class="info col s12 m9">' +
       '<h5><a href="' + book.amazon_product_url + '" target="_blank">' + bookInfo.title + '</a></h5>' +
       '<h5>By ' + bookInfo.author + '</h5>' +
-      '<h5 class="publisher">' + bookInfo.publisher + '</h5>' +
       '<p>' + bookInfo.description + '</p>' +
-      '<div class="stats">' +
-      '<hr>' +
-      '<p>Last Week: ' + lastWeekRank + '</p>' +
-      '<p>Weeks on list: ' + weeksOnList + '</p>' +
       '</div>' +
-      '</div>';
+      '</div>' +
+      '<hr>';
 
     $('#best-seller-titles').append(listing);
     $('#' + book.rank).attr('nyt-rank', book.rank);
