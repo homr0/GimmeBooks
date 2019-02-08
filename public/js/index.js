@@ -7,6 +7,8 @@ $(document).ready(function() {
     constrainWidth: false
   });
 
+  $(".modal").modal();
+
   // AJAX functions
   // Signs up a user.
   $("#signUpButton").on("click", function(e) {
