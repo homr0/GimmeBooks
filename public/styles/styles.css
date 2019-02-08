@@ -103,6 +103,11 @@
   height:  50px;
   line-height:  30px;
 }
+
+.entry .book-cover {
+  max-width: 100%;
+}
+
 /* --------------------------------------------------------------------------------------------- */
 /* Add responsiveness - On small screens, display the navbar vertically instead of horizontally */
 /* @media screen and (max-width: 600px) {
