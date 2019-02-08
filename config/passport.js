@@ -13,17 +13,15 @@ passport.use(
       passwordField: "password"
     },
     function(email, password, done) {
-      // When a user tries to sign in this code runs
-      console.log(email + " " + password);
+      // When a user tries to sign in this code runs.
       password = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+      console.log(password);
 
       db.User.findOne({
         where: {
-          email: email,
-          password: password
+          email: email
         }
       }).then(function(dbUser) {
-        // console.log(dbUser);
         console.log(!dbUser);
         // If there's no user with the given email
         if (!dbUser) {
