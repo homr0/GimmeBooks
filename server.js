@@ -4,6 +4,7 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var db = require("./models");
 var connection = require("./config");
+
 var authenticateController = require("./controllers/authenticate-controller");
 var registerController = require("./controllers/register-controller");
 var app = express();
