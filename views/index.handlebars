@@ -3,44 +3,64 @@
   <div id="banner" class="row">
 
     <div class="entry">
-      {{#if loggedIn}}
-      <div class="col s12 m6">
-        <h3>Your Recommendations:</h3>
+      {{!-- {{#if loggedIn}} --}}
+      <div class="col s7 amber lighten-5" >
+        
+        <h4>NYT BEST SELLERS LIST</h4>
 
-        <ol>
+        <div id="reviews">
+          <!-- reviews -->
+        </div>
+
+        <div id="best-seller-titles">
+          <!-- best sellers -->
+        </div>
+      </div>
+
+        {{!-- <ol>
           {{#each books}}
           <li>{{title}} by {{author}}</li>
           {{/each}}
         </ol>
       </div>
+      {{else}} --}}
 
 
-      {{else}}
 
-      <div class="col s12 offset-m6 m6 blue lighten-5 center">
+<div class="row">
+      <div class="col s5 offset  brown lighten-5 center">
         <h5>New here? Create a free account!</h5>
 
-        <div class="row">
-          <div class="input-field col s12">
+        
+          <form>
+          <div class="input-field ">
             <input id="user_name" type="text" class="validate">
             <label for="user_name">Name</label>
           </div>
-          <div class="input-field col s12">
+          <div class="input-field ">
             <input id="signEmail" type="email" class="validate">
-            <label for="signEmail">Email</label>
+            <label for="email">Email</label>
           </div>
-          <div class="input-field col s12">
+          <div class="input-field ">
             <input id="signPassword" type="password" class="validate">
-            <label for="signPassword">Password</label>
+            <label for="password">Password</label>
           </div>
 
-          <button id="signUpButton" class=" btn">Sign Up</button>
+<<<<<<< HEAD
+         {{!-- <a class="waves-effect waves-light btn">Sign Up</a>  --}}
+         <button id="signUpButton" class=" btn">Sign Up</button>
+          </form>
+=======
+          <button id="signUpButton" class="btn waves-effect waves-light">Sign Up</button>
+>>>>>>> 99f9eb0a29ef8c106fa3b87fb8e0e21100fcc31e
         </div>
-
       </div>
+      </div>
+      {{!-- {{/if}} --}}
+
+     
 
 
-      {{/if}}
     </div>
   </div>
 

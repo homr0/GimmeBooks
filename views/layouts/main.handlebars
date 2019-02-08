@@ -13,29 +13,63 @@
 
 <body>
   <header>
-    <nav>
+    <nav class="nav-extended  brown lighten-2">
 
-      <div class="topnav">
+      {{!-- <div class="topnav">
         <div class="row">
-          <a href="/" class="brand-logo">Gimme Books</a>
+          <a href="/" class="brand-logo">Gimme Books</a> --}}
           <!-- Dropdown Trigger -->
-          <a class='dropdown-trigger btn right' href='#' data-target='login'>Login</a>
+<<<<<<< HEAD
+          {{!-- <a class='dropdown-trigger btn right' href='#' data-target='login'>Login</a>
+=======
+          <a class="dropdown-trigger btn right" href="#" data-target="login">Login</a>
 
+>>>>>>> 99f9eb0a29ef8c106fa3b87fb8e0e21100fcc31e
           <!-- Dropdown Structure -->
-          <ul id='login' class='dropdown-content'>
+          <ul id="login" class="dropdown-content">
             <li><input id="loginEmail" type="email">Email</li>
             <li><input id="loginPassword" type="password">Password</li>
             <label>
-              <input type="checkbox" />
+              <input type="checkbox">
               <span>Remember Me</span>
             </label>
+<<<<<<< HEAD
             <button id="loginButton" class="btn right ">Submit</button>
+          </ul> --}}
+
+          <div class="nav-wrapper  ">
+            <a href="/" class="brand-logo left">Gimme Books</a>
+            <ul id="login" class="right hide-on-med-and-down">
+              <form class="form-inline" action="/action_page.php">
+                <li><input type="email" id="loginEmail" placeholder="Enter email" name="email">
+                  <label>
+                    <input type="checkbox" />
+                    <span>Remember Me</span>
+                  </label></li>
+                <li><input type="password" id="loginPassword" placeholder="Enter password" name="password">
+                  <button type="submit" id="loginButton">Submit</button></li>
+            </ul>
+
+          </div>
+
+          <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+            </ul>
+          </div>
+=======
+            <button id="loginButton" class="btn right">Submit</button>
+>>>>>>> 99f9eb0a29ef8c106fa3b87fb8e0e21100fcc31e
 
 
-          </ul>
 
 
+
+
+          </form>
+
+          {{!--
         </div>
+<<<<<<< HEAD
       </div>
       </div>
       </div>
@@ -52,6 +86,10 @@
                 </div> 
         </form>
     </div>
+=======
+      </div> --}}
+
+>>>>>>> f5a04cd7cb038f1d7676689e9e4b7d336fdfdc4a
     </nav>
   </header>
 
@@ -59,6 +97,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/Favorite.js"></script>
   <script src="/js/index.js"></script>
   <script src="/js/books.js"></script>
 </body>

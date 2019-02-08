@@ -1,30 +1,28 @@
-module.exports = function(sequelize, Sequelize) {
-  var User = sequelize.define('User', {
-
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define("User", {
     userName: {
-      type: Sequelize.STRING,
-      notEmpty: true,
+      type: DataTypes.STRING,
+      notEmpty: true
     },
 
     email: {
-      type: Sequelize.STRING,
-      primaryKey: true,
+      type: DataTypes.STRING,
+      isUnique: true,
       validate: {
-        isEmail: true,
+        isEmail: true
       }
     },
-        
     password: {
-      type: Sequelize.STRING,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
   User.associate = function(models) {
-
-    User.hasMany(models.favoriteBooks);
-  }
-    
+    User.hasMany(models.favoriteBook, {
+      onDelete: "CASCADE"
+    });
+  };
 
   return User;
-}
+};
