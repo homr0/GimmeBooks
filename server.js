@@ -2,9 +2,6 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 var db = require("./models");
-var connection = require("./config");
-var authenticateController = require("./controllers/authenticate-controller");
-var registerController = require("./controllers/register-controller");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
