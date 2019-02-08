@@ -1,10 +1,11 @@
 // Book search API
 $(document).ready(function () {
-  $("#bookForm").submit(function () {
+  $("#bookForm").submit(function (e) {
+    e.preventDefault(e);
     var search = $("#search_bar").val();
     console.log(search);
     if (search === "") {
-      alert("Please do not leave blank");
+      $("#modalSearch").modal('open');
     } else {
       $.get(
         (query = "https://www.googleapis.com/books/v1/volumes?q=" + search),
