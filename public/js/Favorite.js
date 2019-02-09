@@ -1,8 +1,7 @@
 // AJAX 
-$(document).ready(function() { 
+$(document).ready(function() {
 
   $("body").on("click", ".favoritebutton", function(e) {
-    console.log('hello');
     e.preventDefault();
 
     var id = "#entry-" + $(this).attr("data-id");
@@ -12,10 +11,8 @@ $(document).ready(function() {
       genre: $(id + " .book-genre").text(),
       year: $(id + " .book-year").text(),
       ISBN: $(id + " .book-isbn").text(),
-      id: 1
+      id: $("#welcomeUser").attr("data-user")
     };
-
-    console.log(newBooks);
 
     $.ajax({
       method: "POST",
@@ -23,6 +20,24 @@ $(document).ready(function() {
       data: newBooks
     }).then(function() {
       console.log("Created New Book");
+    });
+  });
+
+  $("body").on("click", ".favoriteDelete", function(e) {
+    e.preventDefault();
+
+    var oldBook = {
+      id: $("#welcomeUser").attr("data-user"),
+      bookId: $(this).attr("data-id")
+    };
+
+    $.ajax({
+      method: "DELETE",
+      url: "/api/favorites",
+      data: oldBook
+    }).then(function() {
+      console.log("Deleted book from favorites");
+      location.reload();
     });
   });
 });

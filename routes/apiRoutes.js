@@ -46,12 +46,11 @@ module.exports = function(app) {
   });
 
   // Delete a favorite book for a user
-  app.delete("/user/:id/:bookId", function(req, res) {
-    db.favoriteBooks
+  app.delete("/api/favorites", function(req, res) {
+    db.favoriteBook
       .destroy({
         where: {
-          UserId: req.params.id,
-          id: req.params.bookId
+          id: req.body.bookId
         }
       })
       .then(function(dbfavoriteBooks) {
