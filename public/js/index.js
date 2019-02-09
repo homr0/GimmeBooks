@@ -56,8 +56,6 @@ $(document).ready(function() {
         .trim()
     };
 
-    console.log(logUser);
-
     if (
       !$("#loginEmail").hasClass("invalid") &&
       !$("#loginPassword").hasClass("invalid")
@@ -71,4 +69,10 @@ $(document).ready(function() {
       });
     }
   });
+});
+
+$(".parallax").parallax();
+
+$(".carousel.carousel-slider").carousel({
+  fullWidth: true
 });

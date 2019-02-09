@@ -104,8 +104,8 @@ $(document).ready(function () {
 // ------------------------------------------------------------------------------------------------------------
 // Best Sellers API
 
-fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=i4tEIlfDSdFNPbi0sTkQAEpr39J3y9ct', {
-  method: 'get',
+fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=6ad84e249d054efeaefe1abb8f89df5b', {
+  method: 'GET',
 })
   .then(response => { return response.json(); })
   .then(json => { updateBestSellers(json); })
@@ -121,7 +121,7 @@ function updateBestSellers(nytimesBestSellers) {
     var lastWeekRank = book.rank_last_week || 'n/a';
     var weeksOnList = book.weeks_on_list || 'New this week!';
     var listing =
-      '<div id="' + book.rank + '" class="entry row">' +
+      '<div class="entry row">' +
       '<div class="stats col s12 m3">' +
       '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/387928/book%20placeholder.png" class="book-cover" id="cover-' + book.rank + '">' +
       '</p>' +
@@ -135,14 +135,14 @@ function updateBestSellers(nytimesBestSellers) {
       '<hr>';
 
     $('#best-seller-titles').append(listing);
-    $('#' + book.rank).attr('nyt-rank', book.rank);
+    // $('#' + book.rank).attr('nyt-rank', book.rank);
 
     updateCover(book.rank, isbn);
   });
 }
 
 function updateCover(id, isbn) {
-  fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=AIzaSyBLhwxX1QfAGMc4UTOm61PH8B37krLW59Y", {
+  fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=AIzaSyAcotR8YZ-Zsd6dcREUBhkUA_NE3UC5AIY", {
     method: 'get'
   })
     .then(response => { return response.json(); })

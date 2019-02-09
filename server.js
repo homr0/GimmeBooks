@@ -1,5 +1,7 @@
 require("dotenv").config();
 var express = require("express");
+var session = require("express-session");
+var passport = require("./config/passport");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 var app = express();
@@ -9,9 +11,20 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(
   express.urlencoded({
-    extendended: true
+    extended: true
   })
 );
+
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({
+    secret: "keyboard kitty",
+    resave: true,
+    saveUninitialized: true
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Handlebars
 app.engine(
@@ -27,7 +40,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = {
-  force: true
+  force: false
 };
 
 // If running a test, set syncOptions.force to true
