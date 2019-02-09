@@ -13,10 +13,10 @@
 
 <body>
   <header>
-    <nav class="nav-extended  brown lighten-2">
+    <nav class="nav-extended blue grey darken-1">
 
-          <div class="nav-wrapper  ">
-            <a href="/" class="brand-logo left">Gimme Books</a>
+          <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">Gimme Books</a>
 
             {{#if loggedIn}}
             <ul id="logout" class="right hide-on-med-and-down">
@@ -26,33 +26,28 @@
             </ul>
 
             {{else}}
-
-            <ul id="login" class="right hide-on-med-and-down">
-              <form class="form-inline" action="/action_page.php">
-                <li>
-                  <input type="email" id="loginEmail" placeholder="Enter email" name="email">
-                  
-                  <label>
-                    <input type="checkbox">
-                    <span>Remember Me</span>
-                  </label>
-                </li>
-
-                <li>
-                  <input type="password" id="loginPassword" placeholder="Enter password" name="password">
-                  <button type="submit" id="loginButton">Submit</button>
-                </li>
+      <ul id="login" class="right hide-on-med-and-down">
+        <li>
+        <a href="#modal" class="btn waves-effect waves-light modal-trigger">Login</a>
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <input type="email" id="loginEmail" placeholder="Enter email" name="email">   
+                <label>
+                  <input type="checkbox">
+                  <span>Remember Me</span>
+                </label>
+                <input type="password" id="loginPassword" placeholder="Enter password" name="password">
+                <button type="submit" id="loginButton">Submit</button>
+              </li>
             </ul>
             {{/if}}
           </div>
+    </nav>
 
-          <div class="nav-content">
+          {{!-- <div class="nav-content">
             <ul class="tabs tabs-transparent">
             </ul>
-          </div>
-
-
-
+          </div> --}}
 
 
 
