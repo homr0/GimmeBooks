@@ -3,13 +3,12 @@ var path = require("path");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    var user = req.session;
-    console.log(user);
+    var authenticated = req.session.passport;
     var hbsObject = {
       loggedIn: false
     };
 
-    if (user.passport) {
+    if (authenticated && authenticated.user) {
       hbsObject = {
         loggedIn: true
       };
