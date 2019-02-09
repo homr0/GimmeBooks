@@ -1,19 +1,18 @@
 // AJAX 
-$(document).ready(function() {
+$(document).ready(function() { 
 
-
-  $("body").on("click", "#favoritebutton" ,function (e) {
+  $("body").on("click", ".favoritebutton", function(e) {
     console.log('hello');
-    e.preventDefault(e);
+    e.preventDefault();
 
-
+    var id = "#entry-" + $(this).attr("data-id");
     var newBooks = {
-      author: $(".book-author").text(),
-      title: $(".book-title").text(),
-      ISBN_Num: $(".book-isbn").text(),
-      genre: $(".book-genre").text(),
-      year: $(".book-year").text(),
-      dummyID: 0
+      title: $(id + " .book-title").text(),
+      author: $(id + " .book-author").text(),
+      genre: $(id + " .book-genre").text(),
+      year: $(id + " .book-year").text(),
+      ISBN: $(id + " .book-isbn").text(),
+      id: 1
     };
 
     console.log(newBooks);
@@ -24,7 +23,6 @@ $(document).ready(function() {
       data: newBooks
     }).then(function() {
       console.log("Created New Book");
-      location.reload();
     });
   });
 });
