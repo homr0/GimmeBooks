@@ -102,9 +102,9 @@ $(document).ready(function () {
 fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=6ad84e249d054efeaefe1abb8f89df5b', {
   method: 'GET',
 })
-  .then(response => { return response.json(); })
-  .then(json => { updateBestSellers(json); })
-  .catch(error => {
+  .then(function(response) { return response.json(); })
+  .then(function(json) { updateBestSellers(json); })
+  .catch(function(error) {
     console.log('NYT API Error: Defaulting to nytimes archival data.');
     updateBestSellers(nytimesArchive);
   });
@@ -140,13 +140,13 @@ function updateCover(id, isbn) {
   fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=AIzaSyAcotR8YZ-Zsd6dcREUBhkUA_NE3UC5AIY", {
     method: 'get'
   })
-    .then(response => { return response.json(); })
-    .then(data => {
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
       var img = data.items[0].volumeInfo.imageLinks.thumbnail;
       img = img.replace(/^http:\/\//i, 'https://');
       $('#cover-' + id).attr('src', img);
     })
-    .catch(error => {
+    .catch(function(error) {
       console.log(error);
     });
 }
