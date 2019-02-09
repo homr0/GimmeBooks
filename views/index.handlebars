@@ -1,12 +1,6 @@
 <br><br>
 <main class="container">
-
-  {{!-- {{#if loggedIn}}
-    <p>You are logged in!</p>
-    {{else}}
-    <p>You are not logged in</p>
-  {{/if}} --}}
-          {{#if loggedIn}}
+  {{#if loggedIn  }}
     <div class="container blue-grey lighten-5">
 
       <div id="titles" class="row">
@@ -25,9 +19,9 @@
 
     <div class="section">
       <div class="row">
-        <div class="col s6 offset-s3">
+        <div class="col s12 m6 offset-m3">
           <div class="card center">
-            <div class="card content blue grey darken-1 white-text">
+            <div class="card content blue grey darken-1 white-text" id="signUp">
               <h5>New here? Create a free account!</h5>
 
               <form>
