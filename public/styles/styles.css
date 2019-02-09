@@ -160,6 +160,10 @@ body {
   box-shadow: white !important
 }
 
+#signUp {
+  padding:  1rem;
+}
+
   /* #titles {
     min-height: calc(100vh - 6rem);
     background-image: url(../images/background2.jpg);
