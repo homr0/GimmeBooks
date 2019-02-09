@@ -9,6 +9,8 @@ $(document).ready(function() {
 
   $(".modal").modal();
 
+  $(".sidenav").sidenav();
+
   // AJAX functions
   // Signs up a user.
   $("#signUpButton").on("click", function(e) {
@@ -26,8 +28,6 @@ $(document).ready(function() {
         .trim()
     };
 
-    console.log(newUser);
-
     if (
       !$("#user_name").hasClass("invalid") &&
       !$("#signEmail").hasClass("invalid") &&
@@ -44,21 +44,26 @@ $(document).ready(function() {
   });
 
   // Logs in a user.
-  $("#loginButton").on("click", function(e) {
+  $("#loginButton, #loginButtonM").on("click", function(e) {
     e.preventDefault();
 
+    var mode = "";
+    if ($(this).attr("id") === "loginButtonM") {
+      mode = "M";
+    }
+
     var logUser = {
-      email: $("#loginEmail")
+      email: $("#loginEmail" + mode)
         .val()
         .trim(),
-      password: $("#loginPassword")
+      password: $("#loginPassword" + mode)
         .val()
         .trim()
     };
 
     if (
-      !$("#loginEmail").hasClass("invalid") &&
-      !$("#loginPassword").hasClass("invalid")
+      !$("#loginEmail" + mode).hasClass("invalid") &&
+      !$("#loginPassword" + mode).hasClass("invalid")
     ) {
       $.ajax("/login", {
         method: "POST",
@@ -73,6 +78,3 @@ $(document).ready(function() {
 
 $(".parallax").parallax();
 
-$(".carousel.carousel-slider").carousel({
-  fullWidth: true
-});
