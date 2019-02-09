@@ -17,7 +17,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     var newUser = {
-      name: $("#user_name")
+      userName: $("#user_name")
         .val()
         .trim(),
       email: $("#signEmail")
@@ -77,4 +77,3 @@ $(document).ready(function() {
 });
 
 $(".parallax").parallax();
-

@@ -1,0 +1,31 @@
+<p><strong>Favorite Books:</strong></p>
+
+                <div id="favoritebooks"></div>
+
+                <p id="favoriteTag">These books are are part of <span id="categories"></span>.</p>
+
+                
+                <button class="btn" id="favoriteAdd">
+                    <i class="far fa-star"></i> Add to Favorite Books List
+                </button>
+
+                <button class="btn" id="favoriteRemove">
+                    <i class="fas fa-star"></i> Remove from Favorite Books
+                </button>
+
+                <button type="button" class="btn btn-outline-dark" id="closeRecipe">Close</button>
+
+                <ul id="favoriteBooks">
+                    {{#each favorite}}
+                    <li>{{title}} by {{author}}
+
+                        
+                    </li>
+                    {{/each}}
+                </ul>
+
+                <div class="collapsible-body">
+                    {{book info}}
+
+                    <a href="#" class="btn right favorite-book"><i class="material-icons">remove_circle</i></a>
+                </div>

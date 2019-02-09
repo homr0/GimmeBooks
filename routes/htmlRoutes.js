@@ -38,8 +38,12 @@ module.exports = function(app) {
       var hbsObject = userSession(req);
       var currentUser = hbsObject.id;
 
-      hbsObject.isUser = req.params.id === currentUser;
+      hbsObject.isUser = parseFloat(req.params.id) === parseFloat(currentUser);
       hbsObject.username = "Unknown User";
+
+      for (var i = 0; i < dbUser.favoriteBooks.length; i++) {
+        dbUser.favoriteBooks[i].isUser = hbsObject.isUser;
+      }
 
       if (dbUser) {
         hbsObject.username = dbUser.userName;
