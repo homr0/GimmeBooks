@@ -2,6 +2,7 @@ var chai = require("chai");
 var chaiHttp = require("chai-http");
 var server = require("../server");
 var db = require("../models");
+var bcrypt = require("bcrypt-nodejs");
 var expect = chai.expect;
 
 // Setting up the chai http plugin
@@ -39,10 +40,16 @@ describe("POST /register", function() {
 
         expect(responseStatus).to.equal(200);
 
+        var requestBody = {
+          userName: reqBody.userName,
+          email: reqBody.email
+        };
+
         expect(responseBody)
           .to.be.an("object")
-          .that.includes(reqBody);
+          .that.includes(requestBody);
 
+        expect(bcrypt.compareSync(reqBody.password, responseBody.password));
         // The `done` function is used to end any asynchronous tests
         done();
       });

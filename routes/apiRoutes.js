@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.post("/register", function(req, res) {
     // Create new user.
     db.User.create({
-      userName: req.body.name,
+      userName: req.body.userName,
       email: req.body.email,
       password: req.body.password
     }).then(function(dbUser) {
