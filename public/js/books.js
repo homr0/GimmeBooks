@@ -105,7 +105,7 @@ $(document).ready(function () {
     // ------------------------------------------------------------------------------------------------------------
     // Best Sellers API
 
-    fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=6ad84e249d054efeaefe1abb8f89df5b', {
+    fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=i4tEIlfDSdFNPbi0sTkQAEpr39J3y9ct', {
       method: 'GET',
     })
       .then(response => { return response.json(); })
@@ -143,7 +143,7 @@ $(document).ready(function () {
     }
 
     function updateCover(id, isbn) {
-      fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=AIzaSyAcotR8YZ-Zsd6dcREUBhkUA_NE3UC5AIY", {
+      fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=AIzaSyBLhwxX1QfAGMc4UTOm61PH8B37krLW59Y", {
         method: 'get'
       })
         .then(response => { return response.json(); })
