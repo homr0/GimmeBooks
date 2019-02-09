@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.post("/register", function(req, res) {
     // Create new user.
     db.User.create({
-      userName: req.body.name,
+      userName: req.body.userName,
       email: req.body.email,
       password: req.body.password
     }).then(function(dbUser) {
@@ -46,12 +46,11 @@ module.exports = function(app) {
   });
 
   // Delete a favorite book for a user
-  app.delete("/user/:id/:bookId", function(req, res) {
-    db.favoriteBooks
+  app.delete("/api/favorites", function(req, res) {
+    db.favoriteBook
       .destroy({
         where: {
-          UserId: req.params.id,
-          id: req.params.bookId
+          id: req.body.bookId
         }
       })
       .then(function(dbfavoriteBooks) {
