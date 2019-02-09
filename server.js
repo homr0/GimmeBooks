@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(
   express.urlencoded({
-    extendended: true
+    extended: true
   })
 );
 
@@ -25,10 +25,6 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
-// app.use(express.cookieParser('S3CRE7'));
-// app.use(express.cookieSession());
-// app.use(app.router);
 
 // Handlebars
 app.engine(
