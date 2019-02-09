@@ -1,7 +1,7 @@
 <main class="container">
-    <h2>{{user}}</h2>
+    <h2>{{username}}'s Book List</h2>
 
-    {{!-- <ul class="collection" id="booklist">
+    <ul class="collection" id="booklist">
         {{#each books}}
         <li class="collection-item">
             {{title}} by {{author}}
@@ -10,9 +10,9 @@
             <button class="btn red delete" data-id="{{id}}"><i class="material-icons">delete</i>Delete</button>
             {{/if}}
         </li>
+        {{else}}
+        <li class="collection-item">This user doesn't have any favorite books</li>
         {{/each}}
-    </ul> --}}
-
-    {{> partials/books}}
+    </ul>
 
 </main>
