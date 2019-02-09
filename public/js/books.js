@@ -46,30 +46,34 @@ $(document).ready(function () {
                   href: book.infoLink
                 })
                 .text("Read more");
+              var favoritebutton =$("<a>")
+                .addClass("btn purple imageButtom favoritebutton" )
+                .attr("data-id", i)
+                .text("Favorites");
 
               var imgCol = $("<div>")
                 .addClass("col s3")
-                .append(img, button);
+                .append(img, button, favoritebutton);
 
               var title = $("<h5>")
-                .addClass("center align black-text")
+                .addClass("center align black-text book-title")
                 .text(book.title);
 
               var author = $("<h5>")
-                .addClass("center align black-text")
+                .addClass("center align black-text book-author")
                 .text(book.authors.join(", "));
 
               var year = $("<p>").html(
-                "<strong>Year:</strong> " + book.publishedDate
+                "<strong>Year:</strong> <span class='book-year'>" + book.publishedDate + "</span>"
               );
 
-              var genre = $("<p>").html(
-                "<strong>Genre(s):</strong> " + book.categories.join(", ")
+              var genre = $("<p>").html (
+                "<strong>Genre(s):</strong> <span class='book-genre'>" + book.categories.join(", ") +"</span>"
               );
 
               var isbn = $("<p>").html(
-                "<strong>ISBN:</strong> " +
-                book.industryIdentifiers[0].identifier
+                "<strong>ISBN:</strong> <span class='book-isbn'>" +
+                book.industryIdentifiers[0].identifier + "</span>"
               );
 
               var summary = $("<p>")
@@ -86,6 +90,7 @@ $(document).ready(function () {
 
               $("<li>")
                 .addClass("search_book")
+                .attr("id","entry-"+i)
                 .append(header, body)
                 .appendTo("#search_results");
             }
