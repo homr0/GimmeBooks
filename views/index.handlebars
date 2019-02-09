@@ -1,3 +1,4 @@
+<br><br><br>
 <main class="container">
 
   {{!-- {{#if loggedIn}}
@@ -5,21 +6,17 @@
     {{else}}
     <p>You are not logged in</p>
   {{/if}} --}}
-  <div id="banner" class="row">
+  <div class="section">
+    <div class="container blue-grey lighten-5">
+        {{#if loggedIn}}
+      <div id="titles" class="row">
+        <div class="col s12">
 
-    <div class="entry">
-      {{#if loggedIn}}
-      <div class="col s7 amber lighten-5">
-
-        <h4>NYT BEST SELLERS LIST</h4>
-
-        <div id="reviews">
-          <!-- reviews -->
+          <h4 class="center">NYT BEST SELLERS LIST</h4>
         </div>
-
-        <div id="best-seller-titles">
+          <div id="best-seller-titles">
           <!-- best sellers -->
-        </div>
+          </div>
       </div>
     </div>
   </div>
