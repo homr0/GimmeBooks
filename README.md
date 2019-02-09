@@ -7,7 +7,6 @@ Gimme Books is a book finding app that will return information about your chosen
 ### Front-End
 
 - CSS Framework: Materialize.css
-- Animate.css
 
 ### Back-End
 
@@ -17,9 +16,8 @@ Gimme Books is a book finding app that will return information about your chosen
 - Sequelize*
 - Handlebars (for template)
 - Passport.js (for user authentication)
-- Color.js
 
 ### APIs
 
 - Google Books
-- Amazon
+- New York Times Books
