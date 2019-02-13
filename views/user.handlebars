@@ -1,18 +1,21 @@
-<main class="container">
-    <h2 class="text-center white-text">{{username}}'s Book List</h2>
+<main class="container" id="user">
+    <section class="row">
+        <div class="col s12 m10 offset-m1 blue-grey darken-1 white-text">
+            <h2 class="center">{{username}}'s Book List</h2>
 
-    <ul class="collection" id="booklist">
-        {{#each books}}
-        <li class="collection-item">
-            {{title}} by {{author}}
+            <ul class="collection black-text" id="booklist">
+                {{#each books}}
+                <li class="collection-item row">
+                    <em>{{title}}</em> by {{author}}
 
-            {{#if isUser}}
-            <button class="btn red favoriteDelete" data-id="{{id}}"><i class="material-icons">delete</i>Delete</button>
-            {{/if}}
-        </li>
-        {{else}}
-        <li class="collection-item">This user doesn't have any favorite books</li>
-        {{/each}}
-    </ul>
-
+                    {{#if isUser}}
+                    <button class="btn red favoriteDelete secondary-content" data-id="{{id}}"><i class="material-icons">delete</i> Delete</button>
+                    {{/if}}
+                </li>
+                {{else}}
+                <li class="collection-item">This user doesn't have any favorite books</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 </main>

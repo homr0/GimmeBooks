@@ -164,6 +164,11 @@ body {
   padding:  1rem;
 }
 
+#user {
+  margin: 1rem auto;
+  padding: 1rem;
+}
+
   /* #titles {
     min-height: calc(100vh - 6rem);
     background-image: url(../images/background2.jpg);
