@@ -12,12 +12,22 @@
 
 ## Instructions
 
+- [Demo Account](#demo-account)
 - [Gimme Books Account](#gimme-books-account)
   - [Create an Account](#create-an-account)
   - [Logging In/Logging Out](#logging-in-logging-out)
 - [Getting Books](#getting-books)
   - [Searching For Books](#searching-for-books)
   - [Keep Track of Your Favorites](#keeping-track-of-your-favorites)
+
+### Demo Account
+
+If you would like to test Gimme Books without creating an account, you can use the demo account here:
+
+**Email:** jsmith@email.com  
+**Password:** password
+
+If you choose to create a Gimme Books account, do not use *password* or any other easy-to-guess passwords.
 
 ### Gimme Books Account
 
