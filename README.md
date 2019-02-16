@@ -25,6 +25,8 @@ To make the best use of our app, it is recommended to create a user account.
 
 #### Create an Account
 
+![Creating an account](/public/images/gmb-account-create.PNG)
+
 1. Go to the [Home page](https://powerful-earth-15398.herokuapp.com/).
 2. Put in your **name**, **email**, and **password**.
 3. Click **Sign Up**
@@ -32,8 +34,9 @@ To make the best use of our app, it is recommended to create a user account.
 
 #### Logging In/Logging Out
 
-1. Log in by pressing on the **Login** button.
-2. Log out by pressing on the **Logout** button.
+1. Log in by pressing on the **Login** button. ![Log in to account](/public/images/gmb-account-login.PNG)
+2. Log out by pressing on the **Logout** button. ![Log out of account](/public/images/gmb-account-logout.PNG)
+
 
 ### Getting Books
 
@@ -41,11 +44,15 @@ Gimme Books lets you retrieve books and keep track of them.
 
 #### Searching For Books
 
-1. Go to [Search](https://powerful-earth-15398.herokuapp.com/#bookForm)
+![Searching for books](/public/images/gmb-books-search.PNG)
+
+1. Go to [Search](https://powerful-earth-15398.herokuapp.com/#search_bar)
 2. Type in a book **author** or **title**.
 3. Hit **Enter** to get results.
 
 #### Keep Track of Your Favorites
+
+![Favorite book list](/public/images/gmb-books-favorite.PNG)
 
 1. Once you get your [search results](#searching-for-books), you can open a book result and click on **Favorite**.
 2. Go to your user page and you will see your favorite books list.
