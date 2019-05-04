@@ -1,6 +1,6 @@
 # Gimme Books
 
-[Gimme Books](https://powerful-earth-15398.herokuapp.com/) is a book finding app for people who love books.
+[Gimme Books](https://gimme-books.herokuapp.com/) is a book finding app for people who love books.
 
 ## willCode4ca$h Team Members
 
