@@ -1,6 +1,6 @@
 # Gimme Books
 
-[Gimme Books](https://powerful-earth-15398.herokuapp.com/) is a book finding app for people who love books.
+[Gimme Books](https://gimme-books.herokuapp.com/) is a book finding app for people who love books.
 
 ## willCode4ca$h Team Members
 
@@ -37,7 +37,7 @@ To make the best use of our app, it is recommended to create a user account.
 
 ![Creating an account](/public/images/gmb-account-create.PNG)
 
-1. Go to the [Home page](https://powerful-earth-15398.herokuapp.com/).
+1. Go to the [Home page](https://gimme-books.herokuapp.com/).
 2. Put in your **name**, **email**, and **password**.
 3. Click **Sign Up**
 4. The page should be refreshed and you will be logged in.
@@ -47,7 +47,6 @@ To make the best use of our app, it is recommended to create a user account.
 1. Log in by pressing on the **Login** button. ![Log in to account](/public/images/gmb-account-login.PNG)
 2. Log out by pressing on the **Logout** button. ![Log out of account](/public/images/gmb-account-logout.PNG)
 
-
 ### Getting Books
 
 Gimme Books lets you retrieve books and keep track of them.
@@ -56,7 +55,7 @@ Gimme Books lets you retrieve books and keep track of them.
 
 ![Searching for books](/public/images/gmb-books-search.PNG)
 
-1. Go to [Search](https://powerful-earth-15398.herokuapp.com/#search_bar)
+1. Go to [Search](https://gimme-books.herokuapp.com/#search_bar)
 2. Type in a book **author** or **title**.
 3. Hit **Enter** to get results.
 
